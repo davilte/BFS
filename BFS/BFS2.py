@@ -1,5 +1,6 @@
 from queue import Queue
 
+vertices = ["R", "S", "T", "U", "V", "W", "X", "Y"]
 adj_list = {
     "R": ["S", "V"],
     "S": ["W", "R"],
@@ -10,6 +11,7 @@ adj_list = {
     "X": ["T", "U", "W", "Y"],
     "Y": ["U", "X"]
 }
+j = -1
 
 def BFS(initialVertice):
     # armazenamos todos os nós visitados
@@ -40,8 +42,6 @@ def BFS(initialVertice):
     level[s] = 0
     queue.put(s)
 
-    i = 0
-
     # enquanto a lista temporária não for vazia
     while not queue.empty():
         # remove e armazena o primeiro elemento da lista temporária
@@ -65,15 +65,26 @@ def BFS(initialVertice):
 
                 # e adicionamos ele na lista temporária para fazermos o mesmo com seus vizinhos
                 queue.put(v)
+
     
+    aux = j
+
+    # while aux != 0:
+    #     # print(aux)
+    #     level[vertices[aux]] = 0
+    #     print(level)
+    #     aux -= 1
+
+    # level[vertices[j]] = 0
+    print(level)
+
     a = sum(level.values())
     return a
 
-
-vertices = ["R", "S", "T", "U", "V", "W", "X", "Y"]
 dist = 0
 for i in vertices:
     dist = dist + BFS(i)
+    j += 1
 
 averageDist = dist / len(vertices)
 
