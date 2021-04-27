@@ -1,3 +1,6 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
 initial_vertice = "8"
 adj_list = {
     "8": ["3"],
@@ -9,8 +12,9 @@ adj_list = {
     "7": ["5"],
     "5": []
 }
+a = [(8, 3), (3, 1), (3, 2), (3, 4), (1, 4), (2, 4), (4, 7), (4, 6), (6, 7), (6, 5), (7, 5), (5, 0)]
 
-# w: nao visitado | g: visitado | b: todos os vertices adjacentes visitados
+# W: nao visitado | G: visitado | B: todos os vertices adjacentes visitados
 color = {}
 
 # armazenamos o pai de cada nó
@@ -48,11 +52,21 @@ def dfs_util(u):
 dfs_util(initial_vertice)
 print("\nOrdem DFS: ", dfs_traversal_output)
 print("\nPais: ", parent)
-
+# print(trav_time)
 print("\nÁrvore de profundidade: ")
 for node in adj_list.keys():
     print(node, " -> ", trav_time[node])
-    
+
+G = nx.Graph()
+plt.figure(figsize=(18, 18))
+G.add_edges_from(a)
+nx.draw_networkx(
+    G,
+    node_size=15000,
+    node_color='gray',
+    font_size=15000//500
+    )
+plt.show()
+
 # print("Taversal time: ", trav_time)
 # print(color)
-
