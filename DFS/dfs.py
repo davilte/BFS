@@ -12,7 +12,7 @@ adj_list = {
     "7": ["5"],
     "5": []
 }
-a = [(8, 3), (3, 1), (3, 2), (3, 4), (1, 4), (2, 4), (4, 7), (4, 6), (6, 7), (6, 5), (7, 5), (5, 0)]
+a = [(8, 3), (3, 1), (3, 2), (3, 4), (1, 4), (2, 4), (4, 7), (4, 6), (6, 7), (6, 5), (7, 5)]
 
 # W: nao visitado | G: visitado | B: todos os vertices adjacentes visitados
 color = {}
@@ -62,9 +62,9 @@ plt.figure(figsize=(18, 18))
 G.add_edges_from(a)
 nx.draw_networkx(
     G,
-    node_size=15000,
+    node_size=5000,
     node_color='gray',
-    font_size=15000//500
+    font_size=30
     )
 plt.show()
 
