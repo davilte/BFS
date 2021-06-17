@@ -99,4 +99,4 @@ def dijkstra(graph, start, goal):
         print('Menor distancia: ' + str(shortest_distance[goal]))
         print('Caminho: ' + str(path))
 
-dijkstra(graph, 'w', 'z')
+dijkstra(graph, 'y', 'z')
